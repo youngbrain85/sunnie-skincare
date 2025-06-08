@@ -1,0 +1,31 @@
+name = "sunnie-skincare"
+main = "server/index.ts"
+compatibility_date = "2024-01-15"
+
+[env.production]
+name = "sunnie-skincare-production"
+
+[[env.production.routes]]
+pattern = "cunniecode.com/*"
+custom_domain = true
+
+[[env.production.routes]]
+pattern = "www.cunniecode.com/*"
+custom_domain = true
+
+[build]
+command = "npm run build"
+cwd = "."
+
+[build.upload]
+format = "service-worker"
+
+# Environment variables
+[vars]
+NODE_ENV = "production"
+
+# Add your secrets using: wrangler secret put SECRET_NAME
+# Required secrets:
+# - OPENAI_API_KEY
+# - DATABASE_URL (if using database)
+# - SESSION_SECRET

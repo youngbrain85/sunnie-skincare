@@ -1,0 +1,4 @@
+# Handle API routes for server-side rendering
+/api/* /api/:splat 200
+# Fallback for client-side routing
+/* /index.html 200
